@@ -1,17 +1,27 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace LesGo.Models
 {
+    [Index(nameof(Username), IsUnique = true)]
     public class User
     {
-        public Guid id{set;get;}
-        public required string Name {get;set;}
+        [Key]
+        public Guid Id { set; get; }
 
-        public string Username {get;set;}
-        public string Password {get;set;}
-        public string Bio {get;set;}
+        [Required]
+        public required string Name { get; set; }
+
+        [Required]
+        public string Username { get; set; }
+
+        [Required]
+        public string Password { get; set; }
+        public string? Bio { get; set; }
+        public List<Ride> Rides { get; set; }
     }
 }

@@ -53,13 +53,14 @@
 /Users/bobin13/Documents/VS Code Projects/LesGo/obj/Debug/net7.0/LesGo.csproj.CoreCompileInputs.cache
 /Users/bobin13/Documents/VS Code Projects/LesGo/obj/Debug/net7.0/LesGo.MvcApplicationPartsAssemblyInfo.cs
 /Users/bobin13/Documents/VS Code Projects/LesGo/obj/Debug/net7.0/LesGo.MvcApplicationPartsAssemblyInfo.cache
+/Users/bobin13/Documents/VS Code Projects/LesGo/obj/Debug/net7.0/LesGo.sourcelink.json
+/Users/bobin13/Documents/VS Code Projects/LesGo/obj/Debug/net7.0/staticwebassets.build.json
+/Users/bobin13/Documents/VS Code Projects/LesGo/obj/Debug/net7.0/staticwebassets.development.json
 /Users/bobin13/Documents/VS Code Projects/LesGo/obj/Debug/net7.0/staticwebassets/msbuild.LesGo.Microsoft.AspNetCore.StaticWebAssets.props
 /Users/bobin13/Documents/VS Code Projects/LesGo/obj/Debug/net7.0/staticwebassets/msbuild.build.LesGo.props
 /Users/bobin13/Documents/VS Code Projects/LesGo/obj/Debug/net7.0/staticwebassets/msbuild.buildMultiTargeting.LesGo.props
 /Users/bobin13/Documents/VS Code Projects/LesGo/obj/Debug/net7.0/staticwebassets/msbuild.buildTransitive.LesGo.props
 /Users/bobin13/Documents/VS Code Projects/LesGo/obj/Debug/net7.0/staticwebassets.pack.json
-/Users/bobin13/Documents/VS Code Projects/LesGo/obj/Debug/net7.0/staticwebassets.build.json
-/Users/bobin13/Documents/VS Code Projects/LesGo/obj/Debug/net7.0/staticwebassets.development.json
 /Users/bobin13/Documents/VS Code Projects/LesGo/obj/Debug/net7.0/scopedcss/bundle/LesGo.styles.css
 /Users/bobin13/Documents/VS Code Projects/LesGo/obj/Debug/net7.0/LesGo.csproj.CopyComplete
 /Users/bobin13/Documents/VS Code Projects/LesGo/obj/Debug/net7.0/LesGo.dll

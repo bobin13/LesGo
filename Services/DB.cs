@@ -8,12 +8,18 @@ namespace LesGo.Models
 {
     public class DB : DbContext
     {
-        public DbSet<User> Users {get;set;}
-        public DbSet<Ride> Rides {get;set;}
-        
+        public DbSet<User> Users { get; set; }
+        public DbSet<Ride> Rides { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlite("Filename=LesGoDatabase.db");
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Ride>().OwnsOne(x => x.OriginStops);
+        }
+
     }
 }

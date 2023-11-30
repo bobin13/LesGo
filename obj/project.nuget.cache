@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "25eTpH9IjDzCV9FD8G3NYsEImYHVYoikyubdiK6GT6CqpTOftijCR6eje6sDb9Fi//DVI+3GFPkIwIltFBt4dA==",
+  "dgSpecHash": "LXpRLOxZ+2xfI9Rt6370xJ1v6QmRWFscRngVTRI3FEj4n26/aucGzXQVzs3joR9x8gErMSTwPbsyOi49mJWv6Q==",
   "success": true,
   "projectFilePath": "/Users/bobin13/Documents/VS Code Projects/LesGo/LesGo.csproj",
   "expectedPackageFiles": [
@@ -38,7 +38,10 @@
     "/Users/bobin13/.nuget/packages/system.codedom/4.4.0/system.codedom.4.4.0.nupkg.sha512",
     "/Users/bobin13/.nuget/packages/system.memory/4.5.3/system.memory.4.5.3.nupkg.sha512",
     "/Users/bobin13/.nuget/packages/system.text.encodings.web/7.0.0/system.text.encodings.web.7.0.0.nupkg.sha512",
-    "/Users/bobin13/.nuget/packages/system.text.json/7.0.0/system.text.json.7.0.0.nupkg.sha512"
+    "/Users/bobin13/.nuget/packages/system.text.json/7.0.0/system.text.json.7.0.0.nupkg.sha512",
+    "/Users/bobin13/.nuget/packages/microsoft.netcore.app.ref/7.0.14/microsoft.netcore.app.ref.7.0.14.nupkg.sha512",
+    "/Users/bobin13/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.14/microsoft.aspnetcore.app.ref.7.0.14.nupkg.sha512",
+    "/Users/bobin13/.nuget/packages/microsoft.netcore.app.host.osx-arm64/7.0.14/microsoft.netcore.app.host.osx-arm64.7.0.14.nupkg.sha512"
   ],
   "logs": []
 }
