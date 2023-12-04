@@ -4,22 +4,33 @@ using System.Linq;
 using System.Threading.Tasks;
 using Assignment2.Response;
 using LesGo.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace LesGo.Controllers
 {
+    // Allow CORS for all origins. (Caution!)
     [ApiController]
     [Route("api/[controller]")]
     public class UserController : ControllerBase
     {
         private DB _db = new DB();
 
+        //Get All the Users
         [HttpGet()]
         public async Task<IActionResult> GetAllUsers()
         {
-            var users = await _db.Users.ToListAsync();
+            var users = await _db.Users.Include(x => x.Rides).ToListAsync();
             return Ok(users);
+        }
+
+        //getting a user and all its rides with Id.
+        [HttpGet("{userID}")]
+        public async Task<IActionResult> GetUserById(Guid userID)
+        {
+            var user = await _db.Users.FirstOrDefaultAsync(x => x.Id == userID);
+            return Ok(user);
         }
 
         [HttpPost("addUser")]
@@ -34,6 +45,14 @@ namespace LesGo.Controllers
 
             return Created("user Created", user);
 
+        }
+
+        [HttpGet("driver/{userId}")]
+        public async Task<IActionResult> GetDriverTrips(Guid userId)
+        {
+
+            var user = await _db.Users.FirstOrDefaultAsync(x => x.Id == userId);
+            return Ok(user);
         }
     }
 }

@@ -6,7 +6,8 @@ using Assignment2.Response;
 using LesGo.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-
+//Author: Bahwinder Singh
+//#991418804
 namespace LesGo.Controllers
 {
     [ApiController]
@@ -14,6 +15,14 @@ namespace LesGo.Controllers
     public class RideController : ControllerBase
     {
         private DB _db = new DB();
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllRides()
+        {
+
+            var rides = await _db.Rides.Include(x => x.Users).ToListAsync();
+            return Ok(rides);
+        }
 
         [HttpPost("postRide/{userId}")]
         public async Task<IActionResult> PostRide(Guid userId, [FromBody] Ride ride)
@@ -24,9 +33,16 @@ namespace LesGo.Controllers
                     new Error("400",
                     "Error Posting Ride",
                     "Unexpected Error Occured While Creating Trip, Try again!"));
+            var user = await _db.Users.FirstOrDefaultAsync(x => x.Id == userId);
+            if (user == null)
+                return BadRequest(new Error("400", "No Driver found!", "No driver with this ID found."));
+
+            //adding user that posted ride to ride users array & set driverId.
             ride.DriverId = userId;
-            Console.WriteLine(ride.RideTimeString);
+            ride.Users.Add(user);
+            //takes a epoch time string and converts to dateTime and save it in ride object.
             ride.RideTime = DateTimeOffset.FromUnixTimeMilliseconds(long.Parse(ride.RideTimeString)).UtcDateTime;
+
             await _db.Rides.AddAsync(ride);
             await _db.SaveChangesAsync();
 
@@ -55,9 +71,29 @@ namespace LesGo.Controllers
             if (ride == null)
                 return BadRequest(new Error("400", "No Ride Found!", "No ride found with this ID."));
 
-            if (ride.Users.Count < 3)
-                ride.Users.Add(user);
+            if (ride.Users == null)
+                ride.Users = new List<User>();
+
+            Console.WriteLine(ride.Users.Count);
+            if (ride.Users.Count >= 4)
+                return BadRequest(new Error("400", "Ride Full", "No More Seats Available."));
+
+            ride.Users.Add(user);
             await _db.SaveChangesAsync();
+            return Ok(ride);
+        }
+
+        [HttpDelete("{rideId}")]
+        public async Task<IActionResult> DeleteRide(Guid rideId)
+        {
+            var ride = await _db.Rides.FirstOrDefaultAsync(x => x.Id == rideId);
+
+            if (ride == null)
+                return BadRequest(new Error("404", "No Ride Found", "No Ride found with this ID."));
+
+            if (ride != null)
+                _db.Rides.Remove(ride);
+
             return Ok(ride);
         }
     }

@@ -25,7 +25,12 @@ namespace LesGo.Controllers
         [HttpPost()]
         public IActionResult Login([FromBody] LoginRequest loginRequest)
         {
-            return (Ok($"username: {loginRequest.username} / password: {loginRequest.password}"));
+            Console.WriteLine($"username: {loginRequest.username} / password: {loginRequest.password}");
+            return Ok(new
+            {
+                username = loginRequest.username,
+                password = loginRequest.password
+            });
         }
 
 

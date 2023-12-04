@@ -24,5 +24,6 @@ namespace LesGo.Models
 
         [Required]
         public int Price { get; set; }
+
     }
 }
