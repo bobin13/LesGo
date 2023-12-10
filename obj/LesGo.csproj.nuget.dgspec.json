@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/bobin13/Documents/VS Code Projects/LesGo/LesGo.csproj": {}
+    "/Users/akshaysoni/Desktop/LesGo/LesGo.csproj": {}
   },
   "projects": {
-    "/Users/bobin13/Documents/VS Code Projects/LesGo/LesGo.csproj": {
+    "/Users/akshaysoni/Desktop/LesGo/LesGo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/bobin13/Documents/VS Code Projects/LesGo/LesGo.csproj",
+        "projectUniqueName": "/Users/akshaysoni/Desktop/LesGo/LesGo.csproj",
         "projectName": "LesGo",
-        "projectPath": "/Users/bobin13/Documents/VS Code Projects/LesGo/LesGo.csproj",
-        "packagesPath": "/Users/bobin13/.nuget/packages/",
-        "outputPath": "/Users/bobin13/Documents/VS Code Projects/LesGo/obj/",
+        "projectPath": "/Users/akshaysoni/Desktop/LesGo/LesGo.csproj",
+        "packagesPath": "/Users/akshaysoni/.nuget/packages/",
+        "outputPath": "/Users/akshaysoni/Desktop/LesGo/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/bobin13/.nuget/NuGet/NuGet.Config"
+          "/Users/akshaysoni/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -76,20 +76,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[7.0.14, 7.0.14]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.osx-arm64",
-              "version": "[7.0.14, 7.0.14]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[7.0.14, 7.0.14]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -98,7 +84,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.400/RuntimeIdentifierGraph.json"
         }
       }
     }
