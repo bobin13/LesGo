@@ -52,7 +52,7 @@ namespace LesGo.Controllers
         [HttpGet("{userId}")]
         public async Task<IActionResult> GetPassengerRides(Guid userId)
         {
-            var user = await _db.Users.FirstOrDefaultAsync(x => x.Id == userId);
+            var user = await _db.Users.Include(x => x.Rides).FirstOrDefaultAsync(x => x.Id == userId);
 
             if (user == null)
                 return NotFound();
