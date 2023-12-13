@@ -24,10 +24,21 @@ namespace LesGo.Controllers
             return Ok(rides);
         }
 
+        [HttpGet("byid/{rideId}")]
+        public async Task<IActionResult> GetRideById(Guid rideId)
+        {
+
+            var ride = await _db.Rides.Include(x => x.Users).FirstOrDefaultAsync(x => x.Id == rideId);
+            if (ride == null)
+                return NotFound("Ride not found!");
+
+            return Ok(ride);
+        }
+
         [HttpPost("postRide/{userId}")]
         public async Task<IActionResult> PostRide(Guid userId, [FromBody] Ride ride)
         {
-
+            Console.WriteLine($"origin {ride.Origin} / Dest: {ride.Destination}");
             if (ride == null)
                 return BadRequest(
                     new Error("400",
@@ -81,6 +92,42 @@ namespace LesGo.Controllers
             ride.Users.Add(user);
             await _db.SaveChangesAsync();
             return Ok(ride);
+        }
+
+        [HttpGet("find")]
+        public async Task<IActionResult> FindRide([FromQuery] string origin, [FromQuery] string destination)
+        {
+            var date = "";
+
+            if (origin != null && destination != null)
+            {
+                //converting to lower case
+                origin = origin.ToLower();
+                destination = destination.ToLower();
+
+                var rides1 = _db.Rides
+                .Include(x => x.Users)
+                .Where(x => x.Origin.ToLower() == origin && x.Destination.ToLower() == destination);
+
+                return Ok(rides1);
+
+            }
+
+
+            if (origin == null || destination == null || date == null)
+                return BadRequest(new Error("400", "Invalid Request!", "origin, destination and date required!"));
+
+            var rides = _db.Rides.Where(x => x.Users.Count() <= 4);
+            var availableRides = new List<Ride>();
+            var enteredTime = DateTimeOffset.FromUnixTimeMilliseconds(long.Parse(date)).UtcDateTime;
+            foreach (var ride in rides)
+            {
+                var rideTime = DateTimeOffset.FromUnixTimeMilliseconds(long.Parse(ride.RideTimeString)).UtcDateTime;
+                Console.WriteLine(enteredTime.DayOfYear + "//" + rideTime.DayOfYear);
+                if (origin == ride.Origin && destination == ride.Destination)
+                    return Ok("Date found");
+            }
+            return Ok();
         }
 
         [HttpDelete("{rideId}")]
