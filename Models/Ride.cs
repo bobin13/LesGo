@@ -17,7 +17,8 @@ namespace LesGo.Models
         public DateTime RideTime { get; set; }
 
         [Required]
-        public List<string> OriginStops { get; set; }
+        public string Origin { get; set; }
+        public string Destination { get; set; }
         public List<User> Users { get; set; }
 
         public Guid DriverId { get; set; }
