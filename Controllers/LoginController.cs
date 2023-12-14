@@ -9,7 +9,6 @@ using Microsoft.VisualBasic;
 
 namespace LesGo.Controllers
 {
-
     public class LoginRequest
     {
         public string username { get; set; }
@@ -32,7 +31,5 @@ namespace LesGo.Controllers
                 password = loginRequest.password
             });
         }
-
-
     }
 }
