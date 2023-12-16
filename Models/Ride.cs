@@ -11,14 +11,15 @@ namespace LesGo.Models
         [Key]
         public Guid Id { get; set; }
 
-
-        public string RideTimeString { get; set; }
+        public string RideTimeString { get; set; }        
 
         public DateTime RideTime { get; set; }
 
         [Required]
         public string Origin { get; set; }
+
         public string Destination { get; set; }
+        
         public List<User> Users { get; set; }
 
         public Guid DriverId { get; set; }
