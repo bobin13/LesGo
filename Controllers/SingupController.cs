@@ -13,11 +13,9 @@ using Microsoft.VisualBasic;
 namespace LesGo.Controllers
 {
 
-
-
     [ApiController]
     [Route("api/[controller]")]
-    public class SingupController : ControllerBase
+    public class SignupController : ControllerBase
     {
         private DB _db = new DB();
 
