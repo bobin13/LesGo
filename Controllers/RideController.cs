@@ -140,7 +140,7 @@ namespace LesGo.Controllers
 
             if (ride != null)
                 _db.Rides.Remove(ride);
-
+            await _db.SaveChangesAsync();
             return Ok(ride);
         }
     }
